@@ -1,6 +1,6 @@
 # MCP SQL Server
 
-[![npm version](https://img.shields.io/npm/v/%40fabriciofs%2Fmcp-sql-server)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
+[![npm version](https://img.shields.io/npm/v/%40fabriciofs%2Fmcp-sql-server?cacheSeconds=300)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
 [![Build Status](https://github.com/fabriciofs/mcp-sql-server/actions/workflows/test.yml/badge.svg)](https://github.com/fabriciofs/mcp-sql-server/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/fabriciofs/mcp-sql-server/branch/main/graph/badge.svg)](https://codecov.io/gh/fabriciofs/mcp-sql-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
