@@ -1,5 +1,8 @@
 # MCP SQL Server
 
+[![npm version](https://badge.fury.io/js/@fabriciofs%2Fmcp-sql-server.svg)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Model Context Protocol (MCP) server for SQL Server integration with Claude Code. Query, monitor, and analyze your SQL Server databases directly from Claude.
 
 ## Features
@@ -12,13 +15,19 @@ A Model Context Protocol (MCP) server for SQL Server integration with Claude Cod
 
 ## Installation
 
-### Option 1: Direct from GitHub (npx)
+### Option 1: From npm (recommended)
 
 ```bash
-npx github:fabriciofs/mcp-sql-server
+npx @fabriciofs/mcp-sql-server
 ```
 
-### Option 2: Clone and build locally
+### Option 2: Global installation
+
+```bash
+npm install -g @fabriciofs/mcp-sql-server
+```
+
+### Option 3: Clone and build locally
 
 ```bash
 git clone https://github.com/fabriciofs/mcp-sql-server.git
@@ -38,9 +47,31 @@ Add to your Claude Code MCP settings (`~/.claude/settings.json` or project `.cla
   "mcpServers": {
     "sqlserver": {
       "command": "npx",
-      "args": ["-y", "github:your-username/mcp-sql-server"],
+      "args": ["-y", "@fabriciofs/mcp-sql-server"],
       "env": {
         "SQL_CONNECTION_URL": "sqlserver://user:password@localhost:1433/database",
+        "READONLY": "true"
+      }
+    }
+  }
+}
+```
+
+Or with individual connection parameters:
+
+```json
+{
+  "mcpServers": {
+    "sqlserver": {
+      "command": "npx",
+      "args": ["-y", "@fabriciofs/mcp-sql-server"],
+      "env": {
+        "SQL_SERVER": "localhost",
+        "SQL_DATABASE": "mydb",
+        "SQL_USER": "sa",
+        "SQL_PASSWORD": "yourpassword",
+        "SQL_PORT": "1433",
+        "SQL_TRUST_CERT": "true",
         "READONLY": "true"
       }
     }
