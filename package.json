@@ -1,6 +1,6 @@
 {
   "name": "@fabriciofs/mcp-sql-server",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "MCP Server for SQL Server integration with Claude Code - Query, Monitor, and Analyze",
   "type": "module",
   "main": "build/index.js",
