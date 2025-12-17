@@ -1,12 +1,11 @@
 # MCP SQL Server
 
-[![npm version](https://img.shields.io/npm/v/@fabriciofs/mcp-sql-server.svg)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
+[![npm version](https://img.shields.io/npm/v/%40fabriciofs%2Fmcp-sql-server)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
 [![Build Status](https://github.com/fabriciofs/mcp-sql-server/actions/workflows/test.yml/badge.svg)](https://github.com/fabriciofs/mcp-sql-server/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/fabriciofs/mcp-sql-server/branch/main/graph/badge.svg)](https://codecov.io/gh/fabriciofs/mcp-sql-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D18-green.svg)](https://nodejs.org/)
-[![npm downloads](https://img.shields.io/npm/dm/@fabriciofs/mcp-sql-server.svg)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
 
 A Model Context Protocol (MCP) server for SQL Server integration with Claude Code. Query, monitor, and analyze your SQL Server databases directly from Claude.
 
