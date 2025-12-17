@@ -37,7 +37,8 @@ jobs:
         run: npm run build
 
       - name: Bump version
-        run: npm version patch -m 'chore: bump version to %s [skip ci]'
+        run: |
+          npm version patch -m "chore: bump version to %s [skip ci]"
 
       - name: Publish with provenance
         run: npm publish --access public --provenance
