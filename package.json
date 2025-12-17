@@ -1,0 +1,57 @@
+{
+  "name": "mcp-sql-server",
+  "version": "1.0.0",
+  "description": "MCP Server for SQL Server integration with Claude Code - Query, Monitor, and Analyze",
+  "type": "module",
+  "main": "build/index.js",
+  "bin": {
+    "mcp-sql-server": "./build/index.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "start": "node --env-file=.env build/index.js",
+    "start:prod": "node build/index.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf build",
+    "rebuild": "npm run clean && npm run build",
+    "inspector": "npx @modelcontextprotocol/inspector",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "sql-server",
+    "claude",
+    "anthropic",
+    "database",
+    "model-context-protocol"
+  ],
+  "author": "fabriciofs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabriciofs/mcp-sql-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fabriciofs/mcp-sql-server/issues"
+  },
+  "homepage": "https://github.com/fabriciofs/mcp-sql-server#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
+    "mssql": "^12.2.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/mssql": "^9.1.8",
+    "@types/node": "^25.0.2",
+    "typescript": "^5.9.3"
+  }
+}
