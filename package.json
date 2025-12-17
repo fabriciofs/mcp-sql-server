@@ -21,7 +21,11 @@
     "clean": "rm -rf build",
     "rebuild": "npm run clean && npm run build",
     "inspector": "npx @modelcontextprotocol/inspector",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui"
   },
   "keywords": [
     "mcp",
@@ -52,6 +56,8 @@
   "devDependencies": {
     "@types/mssql": "^9.1.8",
     "@types/node": "^25.0.2",
-    "typescript": "^5.9.3"
+    "@vitest/coverage-v8": "^2.1.8",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.8"
   }
 }

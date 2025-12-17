@@ -1,6 +1,6 @@
 # MCP SQL Server
 
-[![npm version](https://badge.fury.io/js/@fabriciofs%2Fmcp-sql-server.svg)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
+[![npm version](https://img.shields.io/npm/v/@fabriciofs/mcp-sql-server.svg)](https://www.npmjs.com/package/@fabriciofs/mcp-sql-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Model Context Protocol (MCP) server for SQL Server integration with Claude Code. Query, monitor, and analyze your SQL Server databases directly from Claude.
