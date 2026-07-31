@@ -16,11 +16,14 @@ const sqlConfig: sql.config = {
   password: config.SQL_PASSWORD,
   server: config.SQL_SERVER,
   database: config.SQL_DATABASE,
-  port: config.SQL_PORT,
+  // port and instanceName are mutually exclusive in tedious.
+  // When a named instance is provided, the port is resolved by SQL Browser (UDP 1434).
+  ...(config.SQL_INSTANCE ? {} : { port: config.SQL_PORT }),
   options: {
     encrypt: config.SQL_ENCRYPT,
     trustServerCertificate: config.SQL_TRUST_CERT,
     enableArithAbort: true,
+    ...(config.SQL_INSTANCE ? { instanceName: config.SQL_INSTANCE } : {}),
   },
   pool: {
     min: config.POOL_MIN,
@@ -42,7 +45,7 @@ export async function getPool(): Promise<sql.ConnectionPool> {
     logger.info('Connecting to SQL Server', {
       server: config.SQL_SERVER,
       database: config.SQL_DATABASE,
-      port: config.SQL_PORT,
+      ...(config.SQL_INSTANCE ? { instanceName: config.SQL_INSTANCE } : { port: config.SQL_PORT }),
     });
 
     pool = await sql.connect(sqlConfig);

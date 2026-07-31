@@ -11,6 +11,7 @@ interface ParsedConnectionUrl {
   password: string;
   encrypt: boolean;
   trustServerCertificate: boolean;
+  instanceName?: string;
 }
 
 /**
@@ -21,6 +22,7 @@ interface ParsedConnectionUrl {
  * - encrypt (true/false/disable)
  * - TrustServerCertificate (true/false)
  * - trustServerCertificate (true/false)
+ * - instanceName (named SQL Server instance, e.g. "totvs")
  */
 function parseConnectionUrl(url: string): ParsedConnectionUrl {
   // Handle both sqlserver:// and mssql:// protocols
@@ -76,6 +78,9 @@ function parseConnectionUrl(url: string): ParsedConnectionUrl {
     trustServerCertificate = trustCertParam.toLowerCase() === 'true';
   }
 
+  // Handle named instance (case-insensitive parameter name)
+  const instanceName = params.get('instanceName') || params.get('instancename') || undefined;
+
   return {
     server,
     port,
@@ -84,6 +89,7 @@ function parseConnectionUrl(url: string): ParsedConnectionUrl {
     password,
     encrypt,
     trustServerCertificate,
+    instanceName,
   };
 }
 
@@ -102,6 +108,9 @@ const envSchema = z.object({
   SQL_DATABASE: z.string().optional(),
   SQL_USER: z.string().optional(),
   SQL_PASSWORD: z.string().optional(),
+
+  // Named SQL Server instance (Optional - e.g. "totvs" for host\totvs)
+  SQL_INSTANCE: z.string().optional(),
 
   // SQL Server Connection (Optional)
   SQL_PORT: z
@@ -167,6 +176,7 @@ export interface Config {
   SQL_USER: string;
   SQL_PASSWORD: string;
   SQL_PORT: number;
+  SQL_INSTANCE?: string;
   SQL_ENCRYPT: boolean;
   SQL_TRUST_CERT: boolean;
   READONLY: boolean;
@@ -207,6 +217,7 @@ function loadConfig(): Config {
         SQL_USER: parsed.user,
         SQL_PASSWORD: parsed.password,
         SQL_PORT: parsed.port,
+        SQL_INSTANCE: parsed.instanceName,
         SQL_ENCRYPT: parsed.encrypt,
         SQL_TRUST_CERT: parsed.trustServerCertificate,
         READONLY: env.READONLY,
@@ -259,6 +270,7 @@ function loadConfig(): Config {
     SQL_USER: env.SQL_USER!,
     SQL_PASSWORD: env.SQL_PASSWORD!,
     SQL_PORT: env.SQL_PORT,
+    SQL_INSTANCE: env.SQL_INSTANCE,
     SQL_ENCRYPT: env.SQL_ENCRYPT,
     SQL_TRUST_CERT: env.SQL_TRUST_CERT,
     READONLY: env.READONLY,
